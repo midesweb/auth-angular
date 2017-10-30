@@ -1,9 +1,11 @@
 <div class="contenedor">
   <nav>
-    <a routerLink="/">Home</a> | 
-    <a routerLink="/login">Login</a> | 
-    <a routerLink="/registro">Registro</a> 
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Home</a> | 
+    <a routerLink="/login" routerLinkActive="activo">Login</a> | 
+    <a routerLink="/registro" routerLinkActive="activo">Registro</a> 
   </nav>
-  <router-outlet></router-outlet>
+  <div class="cuerpo">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 

@@ -1,0 +1,17 @@
+.contenedor{
+  margin: 0 auto;
+  max-width: 1000px;
+}
+nav{
+  padding: 10px;
+  background-color: #ddd;
+}
+nav a {
+  color: #009;
+}
+nav a.activo {
+  color: #090;
+}
+.cuerpo {
+  margin: 10px;
+}
