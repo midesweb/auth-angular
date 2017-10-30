@@ -1,19 +1,9 @@
-<h2>Login</h2>
-<p>
-  Email: <input type="text" [(ngModel)]="usuario.email">
-  <br>
-  Pass: <input type="text" [(ngModel)]="usuario.password">
-</p>
-<p>
-  <button (click)="onLogin()">Login</button>
-</p>
+<div class="contenedor">
+  <nav>
+    <a routerLink="/">Home</a> | 
+    <a routerLink="/login">Login</a> | 
+    <a routerLink="/registro">Registro</a> 
+  </nav>
+  <router-outlet></router-outlet>
+</div>
 
-<h2>Registro</h2>
-<p>
-  Email: <input type="text" [(ngModel)]="registro.email">
-  <br>
-  Pass: <input type="text" [(ngModel)]="registro.password">
-</p>
-<p>
-  <button (click)="onRegistro()">Registrarse</button>
-</p>
