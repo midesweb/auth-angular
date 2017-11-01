@@ -10,11 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
 import { SeguridadService } from './seguridad/seguridad.service';
+import { SeriesModule } from './series/series.module';
+import { AltaSerieComponent } from './series/alta-serie/alta-serie.component';
+import { AuthGuard } from './seguridad/auth-guard.service';
+
 
 const rutas: Routes = [
   { path: '', component: HomeComponent},
   { path: 'registro', component: RegistroComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'altaSerie', canActivate: [AuthGuard], component: AltaSerieComponent}
 ];
 
 @NgModule({
@@ -27,10 +32,12 @@ const rutas: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(rutas),
-    SeguridadModule
+    SeguridadModule,
+    SeriesModule
   ],
   providers: [
-    SeguridadService
+    SeguridadService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

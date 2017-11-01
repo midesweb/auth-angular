@@ -1,6 +1,7 @@
 <div class="contenedor">
   <nav>
-    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Home</a>  
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Home</a> |  
+    <a routerLink="/altaSerie" routerLinkActive="activo">Alta Serie</a>  
     <span class="userLogin" *ngIf="! seguridadService.estaAutenticado()">
       <a routerLink="/login" routerLinkActive="activo">Login</a> | 
       <a routerLink="/registro" routerLinkActive="activo">Registro</a> 

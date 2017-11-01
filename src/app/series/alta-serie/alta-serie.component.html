@@ -1,0 +1,16 @@
+<p>
+    <span>Nombre:</span>
+    <input type="text" [(ngModel)]="serie.nombre">
+  </p>
+  <p>
+    <span>Temporadas:</span>
+    <input type="number" [(ngModel)]="serie.temporadas">
+  </p>
+  <p>
+    <span>Año primera emisión:</span>
+    <input type="number" [(ngModel)]="serie.emision">
+  </p>
+  <p>
+    <button (click)="onCrearSerie()">Crear</button>
+  </p>
+  
