@@ -11,7 +11,8 @@ import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
 import { SeguridadService } from './seguridad/seguridad.service';
 import { SeriesModule } from './series/series.module';
-import { AltaSerieComponent } from './series/alta-serie/alta-serie.component';
+import { AltaSeriesComponent } from './series/alta-series/alta-series.component';
+import { EditarSerieComponent } from './series/editar-serie/editar-serie.component';
 import { AuthGuard } from './seguridad/auth-guard.service';
 
 
@@ -19,7 +20,8 @@ const rutas: Routes = [
   { path: '', component: HomeComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'altaSerie', canActivate: [AuthGuard], component: AltaSerieComponent}
+  { path: 'altaSerie', canActivate: [AuthGuard], component: AltaSeriesComponent},
+  { path: 'editarSerie/:id', component: EditarSerieComponent}
 ];
 
 @NgModule({

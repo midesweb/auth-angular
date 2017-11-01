@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AltaSerieComponent } from './alta-serie.component';
+import { ItemSerieComponent } from './item-serie.component';
 
-describe('AltaSerieComponent', () => {
-  let component: AltaSerieComponent;
-  let fixture: ComponentFixture<AltaSerieComponent>;
+describe('ItemSerieComponent', () => {
+  let component: ItemSerieComponent;
+  let fixture: ComponentFixture<ItemSerieComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AltaSerieComponent ]
+      declarations: [ ItemSerieComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AltaSerieComponent);
+    fixture = TestBed.createComponent(ItemSerieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

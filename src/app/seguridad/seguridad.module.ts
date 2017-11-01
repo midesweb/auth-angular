@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SeguridadService } from './seguridad.service';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { HttpToolsService } from './../http-tools.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RegistroComponent } from './registro/registro.component';
     RegistroComponent
   ],
   providers: [
-    SeguridadService
+    SeguridadService,
+    HttpToolsService
   ]
 })
 export class SeguridadModule { }

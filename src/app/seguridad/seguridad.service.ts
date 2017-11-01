@@ -1,3 +1,4 @@
+import { HttpToolsService } from './../http-tools.service';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -7,7 +8,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class SeguridadService {
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private httpToolsService: HttpToolsService
+  ) { }
 
   registrarUsuario(usuario) {
     return this.http.post('http://localhost:3000/sign-in', usuario)
@@ -39,19 +43,11 @@ export class SeguridadService {
   }
 
   verificarTokenValido() {
-    const options = this.configurarCabeceras();
+    const options = this.httpToolsService.configurarCabeceras();
     return this.http.get('http://localhost:3000/verify', options).subscribe(
       (response) => console.log('estoy logueado'),
       (error) => this.cerrarSesion()
     );
   }
 
-  configurarCabeceras() {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-      'token': this.recuperarToken()
-    });
-    const options = new RequestOptions({ headers: headers });
-    return options;
-  }
 }
