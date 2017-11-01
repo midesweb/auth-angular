@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+
+import { SeguridadService } from './../seguridad.service';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +11,26 @@ import { Http } from '@angular/http';
 export class LoginComponent implements OnInit {
 
   usuario = {
-    email: 'a@a.es',
-    password: '123'
+    email: 'user@example.com',
+    password: '1234'
   };
+  mensaje = '';
+  logueado = false;
 
-  constructor(private http: Http) { }
+  constructor(private seguridadService: SeguridadService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onLogin() {
-    console.log(this.usuario);
-    this.http.post('http://localhost:3000/login', this.usuario)
+    this.seguridadService.loguearUsuario(this.usuario)
       .subscribe(
-        (response) => console.log(response)
+        (token) => {
+          this.seguridadService.almacenarToken(token);
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          this.mensaje = error._body;
+        }
       );
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+
+import { SeguridadService } from './../seguridad.service';
 
 @Component({
   selector: 'app-registro',
@@ -8,22 +9,30 @@ import { Http } from '@angular/http';
 })
 export class RegistroComponent implements OnInit {
 
+  mensaje = '';
   registro = {
     email: 'a@a.com',
     password: 'qwe'
   };
 
-  constructor(private http: Http) { }
+  constructor(private seguridadService: SeguridadService) { }
 
   ngOnInit() {
   }
 
   onRegistro() {
-    this.http.post('http://localhost:3000/sign-in', this.registro)
-    .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
+    this.mensaje = '';
+    this.seguridadService.registrarUsuario(this.registro)
+      .subscribe(
+        (response) => {
+          // console.log('response', response);
+          this.mensaje = response;
+        },
+        (error) => {
+          // console.log('error', error);
+          this.mensaje = error._body;
+        }
+      );
   }
 
 }

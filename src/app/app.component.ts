@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 
+import { SeguridadService } from './seguridad/seguridad.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +10,17 @@ import { RouterLinkActive } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  constructor () {}
+  constructor (private seguridadService: SeguridadService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.verificarLogin();
+  }
 
+  onLogout() {
+    this.seguridadService.cerrarSesion();
+  }
+
+  verificarLogin() {
+    this.seguridadService.verificarTokenValido();
+  }
 }

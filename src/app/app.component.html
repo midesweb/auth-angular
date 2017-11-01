@@ -1,8 +1,13 @@
 <div class="contenedor">
   <nav>
-    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Home</a> | 
-    <a routerLink="/login" routerLinkActive="activo">Login</a> | 
-    <a routerLink="/registro" routerLinkActive="activo">Registro</a> 
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Home</a>  
+    <span class="userLogin" *ngIf="! seguridadService.estaAutenticado()">
+      <a routerLink="/login" routerLinkActive="activo">Login</a> | 
+      <a routerLink="/registro" routerLinkActive="activo">Registro</a> 
+    </span>
+    <span class="userLogin" *ngIf="seguridadService.estaAutenticado()">
+      <a class="pointer" (click)="onLogout()">Cerrar sesión</a>
+    </span>
   </nav>
   <div class="cuerpo">
     <router-outlet></router-outlet>

@@ -9,6 +9,7 @@ import { SeguridadModule } from './seguridad/seguridad.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
+import { SeguridadService } from './seguridad/seguridad.service';
 
 const rutas: Routes = [
   { path: '', component: HomeComponent},
@@ -28,7 +29,9 @@ const rutas: Routes = [
     RouterModule.forRoot(rutas),
     SeguridadModule
   ],
-  providers: [],
+  providers: [
+    SeguridadService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,15 @@
-<h2>Login</h2>
-<p>
-  Email: <input type="text" [(ngModel)]="usuario.email">
-  <br>
-  Pass: <input type="text" [(ngModel)]="usuario.password">
-</p>
-<p>
-  <button (click)="onLogin()">Login</button>
-</p>
+<div *ngIf="!logueado; else loginCorrecto">
+  <h2>Login</h2>
+  <p>
+    Email: <input type="text" [(ngModel)]="usuario.email">
+    <br>
+    Pass: <input type="text" [(ngModel)]="usuario.password">
+  </p>
+  <p>
+    <button (click)="onLogin()">Login</button>
+  </p>
+  <p>{{ mensaje }}</p>
+</div>
+<ng-template #loginCorrecto>
+  Ya estás logueado
+</ng-template>

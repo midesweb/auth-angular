@@ -15,3 +15,10 @@ nav a.activo {
 .cuerpo {
   margin: 10px;
 }
+span.userLogin {
+  display: inline-block;
+  float: right;
+}
+.pointer {
+  cursor: pointer;
+}
